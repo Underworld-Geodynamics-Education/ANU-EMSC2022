@@ -1,3 +1,17 @@
+.DS_Store
+_site
+.ipynb_checkpoints
+
+CourseContent/Notebooks/ScatteredData+Triangulation/*.png
+CourseContent/Notebooks/Mapping/*.png
+CourseContent/Notebooks/Mapping/*.jpg
+CourseContent/Notebooks/SphericalMeshing/SphericalTriangulations/*.png
+CourseContent/Notebooks/SphericalMeshing/CartesianTriangulations/*.png
+CourseContent/Notebooks/SphericalMeshing/Litho1pt0/*.png
+CourseContent/Notebooks/Numpy+Scipy/*png
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

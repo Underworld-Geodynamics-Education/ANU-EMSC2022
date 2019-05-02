@@ -1,0 +1,29 @@
+.DS_Store
+.ipynb_checkpoints
+
+## These will probably not be added anyway since the assumption here is that we
+## only add exactly the directories we need. It might help in the build process
+## to drop the size of the context
+
+# Private Parts
+
+CourseContent/Private/*
+
+# Built - if made locally
+
+www/*
+build/*
+CourseContent/Data/Resources/*
+CourseContent/pre-2018/*
+CourseContent/Notebooks/ScatteredData+Triangulation/*.png
+CourseContent/Notebooks/Mapping/*.png
+CourseContent/Notebooks/Mapping/*.jpg
+CourseContent/Notebooks/SphericalMeshing/SphericalTriangulations/*.png
+CourseContent/Notebooks/SphericalMeshing/CartesianTriangulations/*.png
+CourseContent/Notebooks/SphericalMeshing/Litho1pt0/*.png
+CourseContent/Notebooks/Numpy+Scipy/*png
+
+#  Git
+
+.git
+.gitignore
