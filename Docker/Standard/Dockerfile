@@ -65,7 +65,8 @@ USER jovyan
 
 ## These are the build templates etc
 ADD --chown=jovyan:jovyan  +StudentLabs +StudentLabs
-ADD --chown=jovyan:jovyan  0-StartHere.ipynb 0-StartHere.ipynb 
+ADD --chown=jovyan:jovyan  0-StartHere.ipynb 0-StartHere.ipynb
+ADD --chown=jovyan:jovyan  GlobalEQMap.png GlobalEQMap.png 
 ADD --chown=jovyan:jovyan  Docker/Standard/jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
 
 # Persistent / Shared space outside the container
