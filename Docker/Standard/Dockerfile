@@ -42,7 +42,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --
 #
 
 RUN pip install stripy imageio
-RUN pip install git+https://github.com/OKaluza/LavaVu.git
+RUN pip install git+https://github.com/OKaluza/LavaVu.git@afa8cd24e6dae7ffbacf9735db8e1affd85fd3df
 
 # RUN useradd --create-home --home-dir /home/jovyan --shell /bin/bash --user-group jovyan || true
 
@@ -64,9 +64,8 @@ WORKDIR  ${HOME}
 USER jovyan
 
 ## These are the build templates etc
-ADD --chown=jovyan:jovyan  CourseContent/Data/Reference Data/Reference
-ADD --chown=jovyan:jovyan  CourseContent/Data/Resources Data/Resources
-ADD --chown=jovyan:jovyan  CourseContent/Notebooks Notebooks
+ADD --chown=jovyan:jovyan  +StudentLabs +StudentLabs
+ADD --chown=jovyan:jovyan  0-StartHere.ipynb 0-StartHere.ipynb 
 ADD --chown=jovyan:jovyan  Docker/Standard/jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
 
 # Persistent / Shared space outside the container
