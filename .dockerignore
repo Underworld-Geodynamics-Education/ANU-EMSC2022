@@ -13,17 +13,20 @@ CourseContent/Private/*
 
 www/*
 build/*
-CourseContent/Data/Resources/*
-CourseContent/pre-2018/*
-CourseContent/Notebooks/ScatteredData+Triangulation/*.png
-CourseContent/Notebooks/Mapping/*.png
-CourseContent/Notebooks/Mapping/*.jpg
-CourseContent/Notebooks/SphericalMeshing/SphericalTriangulations/*.png
-CourseContent/Notebooks/SphericalMeshing/CartesianTriangulations/*.png
-CourseContent/Notebooks/SphericalMeshing/Litho1pt0/*.png
-CourseContent/Notebooks/Numpy+Scipy/*png
+CourseContent/*
 
-CourseContent/Notebooks/RefCase-sinker*
+\+LectureMaterials/Animation/*.png
+\+LectureMaterials/Mapping/*.png
+\+LectureMaterials/Mapping/*.jpg
+\+LectureMaterials/SphericalMeshing/SphericalTriangulations/*.png
+\+LectureMaterials/SphericalMeshing/CartesianTriangulations/*.png
+\+LectureMaterials/SphericalMeshing/Litho1pt0/*.png
+\+LectureMaterials/Numpy+Scipy/*png
+\+LectureMaterials/StokesSinkerModels/RefCase-sinker*
+
+\+LectureMaterials/\+Data
+
+
 *.mp4
 
 

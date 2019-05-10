@@ -1,4 +1,4 @@
-FROM jupyterhub/singleuser:0.9.4
+FROM lmoresi/jupyterhub_single_plus_pye:1.0
 
 ## =============================================================
 ## base - image ... whatever functionality you want to provide !
@@ -14,59 +14,15 @@ FROM jupyterhub/singleuser:0.9.4
 ##
 ## =============================================================
 
-USER root
-
-# The following installations are required for:
-# various: build-essential
-# stripy: gcc,  gfortran
-# lavavu: libgl*mesa*, libpng-dev, libtiff-dev, libx11-dev
-# lavavu: freeglut*, xvfb
-
-
-RUN apt-get update -y ;
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --fix-missing \
-        gcc gfortran \
-        libpng-dev \
-        libtiff-dev \
-        libx11-dev \
-        build-essential \
-        libgl1-mesa-dri \
-        libgl1-mesa-glx \
-        freeglut3 \
-        freeglut3-dev \
-        xvfb \
-        git \
-        && conda install -y numpy scipy cartopy gdal netcdf4 obspy \
-        && rm -rf /var/lib/apt/lists/*
-
-#
-
-RUN pip install stripy imageio
-RUN pip install git+https://github.com/OKaluza/LavaVu.git@afa8cd24e6dae7ffbacf9735db8e1affd85fd3df
-
-# RUN useradd --create-home --home-dir /home/jovyan --shell /bin/bash --user-group jovyan || true
-
-# # Install Tini.. this is required because CMD (below) doesn't play nice with notebooks for some reason: https://github.com/ipython/ipython/issues/7062, https://github.com/jupyter/notebook/issues/334
-# RUN curl -L https://github.com/krallin/tini/releases/download/v0.10.0/tini > tini && \
-#     echo "1361527f39190a7338a0b434bd8c88ff7233ce7b9a4876f3315c22fce7eca1b0 *tini" | sha256sum -c - && \
-#     mv tini /usr/local/bin/tini && \
-#     chmod +x /usr/local/bin/tini
-
-# script for xvfb-run.  all docker commands will effectively run under this via the entrypoint
-RUN printf "#\041/bin/sh \n rm -f /tmp/.X99-lock && xvfb-run -s '-screen 0 1600x1200x16' \$@" >> /usr/local/bin/xvfbrun.sh && \
-                    chmod +x /usr/local/bin/xvfbrun.sh
-
-
-RUN addgroup jovyan  || true
-RUN usermod -a -G jovyan jovyan || true
 
 WORKDIR  ${HOME}
 USER jovyan
 
 ## These are the build templates etc
 ADD --chown=jovyan:jovyan  +StudentLabs +StudentLabs
+ADD --chown=jovyan:jovyan  +Solutions +Solutions
 ADD --chown=jovyan:jovyan  0-StartHere.ipynb 0-StartHere.ipynb
-ADD --chown=jovyan:jovyan  GlobalEQMap.png GlobalEQMap.png 
+ADD --chown=jovyan:jovyan  GlobalEQMap.png GlobalEQMap.png
 ADD --chown=jovyan:jovyan  Docker/Standard/jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
 
 # Persistent / Shared space outside the container
